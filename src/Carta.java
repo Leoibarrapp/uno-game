@@ -1,3 +1,5 @@
+
+
 public abstract class Carta {
     private String tipo;
 

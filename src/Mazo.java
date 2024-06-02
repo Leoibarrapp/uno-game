@@ -1,26 +1,23 @@
-import java.util.LinkedList;
-import java.util.*;
 import java.util.Collections;
+import java.util.LinkedList;
 
 enum ColorCarta{ R, G, B ,Y };
 
-public class MazoInicial {
-    private LinkedList<Carta> mazoInicial;
+public class Mazo extends LinkedList<Carta> {
+    LinkedList<Carta> mazo;
 
-    public MazoInicial() {
-        this.mazoInicial = crear();
+    public Mazo() {
+    this.mazo = new LinkedList<>();}
+
+    public LinkedList<Carta> getMazo() {
+        return mazo;
     }
 
-    public LinkedList<Carta> getMazoInicial() {
-        return mazoInicial;
+    public void setMazo(LinkedList<Carta> mazo) {
+        this.mazo = mazo;
     }
-
-    public void setMazoInicial(LinkedList<Carta> mazoInicial) {
-        this.mazoInicial = mazoInicial;
-    }
-
     public LinkedList<Carta> crear(){
-        LinkedList<Carta> mazo = new LinkedList<Carta>();
+
 
         for (ColorCarta color : ColorCarta.values()) {
             mazo.add(new Numero(color.name().charAt(0), "0"));
@@ -44,11 +41,23 @@ public class MazoInicial {
 
         return mazo;
     }
-
-    public void barajear(){
-        Collections.shuffle(this.mazoInicial);
-        
+    public void imprimirMazo() {
+        System.out.println("Mazo:");
+        for (Carta carta : mazo) {
+            System.out.println("  " + carta);
+        }
     }
+    public void barajear(){
+        Collections.shuffle(this.mazo);
 
+    }
+    public void soltarCartaTope(Mazo destino) {
+        if (mazo.isEmpty()) {
+            throw new RuntimeException("No hay cartas en el mazo");
+        }else {
+        Carta carta = mazo.remove(0);
+        destino.mazo.add(carta);
+    }
+    }
 
 }

@@ -1,13 +1,15 @@
-
+import java.util.LinkedList;
 
 public class Main {
 
     public static void main(String[] args) {
-
-        MazoInicial mazoInicial1 = new MazoInicial();
-        for(Carta cartas : mazoInicial1.getMazoInicial()){
-            mazoInicial1.barajear();
-            System.out.println(cartas);
-        }
+        new Mazo();
+        Mazo mazoInicial1 = new Mazo();
+        Mazo cartaTope1 = new Mazo();
+        mazoInicial1.crear();
+        mazoInicial1.barajear();
+        mazoInicial1.imprimirMazo();
+        mazoInicial1.soltarCartaTope(cartaTope1);
+        cartaTope1.imprimirMazo();
     }
 }
