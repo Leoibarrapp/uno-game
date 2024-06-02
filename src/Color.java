@@ -14,6 +14,6 @@ public abstract class Color extends Carta {
         this.color = color;
     }
 
-aaaaaaaaaaaaaaaaaaa cambioooooooooo
+aaaaa
     
 }
