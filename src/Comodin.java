@@ -1,3 +1,5 @@
+
+
 public class Comodin extends Carta {
 
     public Comodin(String tipo) {

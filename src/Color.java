@@ -1,3 +1,5 @@
+
+
 public abstract class Color extends Carta {
     private char color;
 

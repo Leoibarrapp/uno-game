@@ -1,5 +1,6 @@
 import java.util.LinkedList;
 import java.util.*;
+import java.util.Collections;
 
 enum ColorCarta{ R, G, B ,Y };
 
@@ -45,12 +46,7 @@ public class MazoInicial {
     }
 
     public void barajear(){
-        int rand;
-        
-        for (int i = 0; i < mazoInicial.size(); i++) {
-            rand = (int) Math.floor(Math.random()*108);
-            Collections.swap(mazoInicial, i, rand);
-        }
+        Collections.shuffle(this.mazoInicial);
         
     }
 
