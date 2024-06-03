@@ -1,6 +1,6 @@
 public class TomaCuatro extends Comodin{
 
-    public TomaCuatro(String tipo) {
-        super(tipo);
+    public TomaCuatro(char color, String tipo) {
+        super(color, tipo);
     }
 }

@@ -1,6 +1,6 @@
 public class CambiaColor extends Comodin{
 
-    public CambiaColor(String tipo) {
-        super(tipo);
+    public CambiaColor(char color, String tipo) {
+        super(color, tipo);
     }
 }
