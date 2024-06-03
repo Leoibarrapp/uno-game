@@ -5,7 +5,6 @@ public class CPU extends Jugador{
     }
 
     public void jugar(Juego juego, Carta x){
-        System.out.println("jugada de cp");
         for(Carta carta : this.getCartas().getMazo()){
             if(carta.esJugable(juego)){
                 super.jugar(juego, carta);
@@ -13,6 +12,16 @@ public class CPU extends Jugador{
             }
         }
 
+    }
+
+    public String toString(){
+        String s = "CPU [...] \u001B[37m " + this.getCartas().getMazo().size() + " cartas restantes";
+
+        if(this.getCartas().getMazo().size() == 1){
+            s = s + "\u001B[33m UNO!";
+        }
+
+        return s + "\u001B[0m";
     }
 
 }

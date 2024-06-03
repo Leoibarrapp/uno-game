@@ -1,6 +1,6 @@
 
 
-public class Carta {
+public abstract class Carta {
     private char color;
     private String tipo;
 
@@ -17,13 +17,7 @@ public class Carta {
         return tipo;
     }
 
-    public boolean esJugable(Juego juego){
-        Carta tope = juego.getMazoJuego().getTope();
-        if( (this.tipo.equals(tope.getTipo())) || (this.color == tope.getColor()) ){
-            return true;
-        }
-        return false;
-    }
+    public abstract boolean esJugable(Juego juego);
 
     public String toString() {
         String c = "";

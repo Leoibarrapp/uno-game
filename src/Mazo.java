@@ -25,22 +25,22 @@ public class Mazo {
     public LinkedList<Carta> crear(){
 
         for (ColorCarta color : ColorCarta.values()) {
-            mazo.add(new Carta(color.name().charAt(0), "0"));
+            mazo.add(new CartaColor(color.name().charAt(0), "0"));
 
             for (int numero = 1; numero <= 9; numero++) {
-                mazo.add(new Carta(color.name().charAt(0), String.valueOf(numero)));
-                mazo.add(new Carta(color.name().charAt(0), String.valueOf(numero)));
+                mazo.add(new CartaColor(color.name().charAt(0), String.valueOf(numero)));
+                mazo.add(new CartaColor(color.name().charAt(0), String.valueOf(numero)));
             }
 
-            mazo.add(new Carta(color.name().charAt(0), "CT2")); mazo.add(new Carta(color.name().charAt(0), "CT2"));
-            mazo.add(new Carta(color.name().charAt(0), "R")); mazo.add(new Carta(color.name().charAt(0), "R"));
-            mazo.add(new Carta(color.name().charAt(0), "S")); mazo.add(new Carta(color.name().charAt(0), "S"));
+            mazo.add(new CartaColor(color.name().charAt(0), "CT2")); mazo.add(new CartaColor(color.name().charAt(0), "CT2"));
+            mazo.add(new CartaColor(color.name().charAt(0), "R")); mazo.add(new CartaColor(color.name().charAt(0), "R"));
+            mazo.add(new CartaColor(color.name().charAt(0), "S")); mazo.add(new CartaColor(color.name().charAt(0), "S"));
 
         }
 
         for(int i = 0; i < 4; i ++){
-            mazo.add(new Carta('C', "CT4"));
-            mazo.add(new Carta('C', "CC"));
+            mazo.add(new CartaComodin('C', "CT4"));
+            mazo.add(new CartaComodin('C', "CC"));
         }
 
         return mazo;
@@ -70,6 +70,6 @@ public class Mazo {
             s = s + mazo.get(i) + ", ";
         }
 
-        return s + mazo.getLast() + " ] " + mazo.size();
+        return s + mazo.getLast() + " ]";
     }
 }

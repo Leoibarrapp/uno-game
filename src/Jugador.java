@@ -59,7 +59,13 @@ public class Jugador{
     }
 
     public String toString(){
-        return nombre + " " + cartas + "\u001B[37m " + cartas.getMazo().size() + " cartas restantes" + "\u001B[0m";
+        String s = nombre + " " + cartas + "\u001B[37m " + cartas.getMazo().size() + " cartas restantes";
+
+        if(cartas.getMazo().size() == 1){
+            s = s + "\u001B[33m UNO!";
+        }
+
+        return s + "\u001B[0m";
     }
 
 }
