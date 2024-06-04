@@ -1,0 +1,460 @@
+{
+  "mazoJuego": {
+    "mazo": [
+      {
+        "color": "G",
+        "tipo": "T2"
+      },
+      {
+        "color": "G",
+        "tipo": "T2"
+      },
+      {
+        "color": "G",
+        "tipo": "S"
+      },
+      {
+        "color": "B",
+        "tipo": "S"
+      },
+      {
+        "color": "B",
+        "tipo": "9"
+      },
+      {
+        "color": "B",
+        "tipo": "2"
+      }
+    ]
+  },
+  "mazoPila": {
+    "mazo": [
+      {
+        "color": "G",
+        "tipo": "2"
+      },
+      {
+        "color": "G",
+        "tipo": "9"
+      },
+      {
+        "color": "Y",
+        "tipo": "R"
+      },
+      {
+        "color": "G",
+        "tipo": "0"
+      },
+      {
+        "color": "R",
+        "tipo": "3"
+      },
+      {
+        "color": "W",
+        "tipo": "CC"
+      },
+      {
+        "color": "B",
+        "tipo": "2"
+      },
+      {
+        "color": "B",
+        "tipo": "1"
+      },
+      {
+        "color": "B",
+        "tipo": "4"
+      },
+      {
+        "color": "Y",
+        "tipo": "6"
+      },
+      {
+        "color": "R",
+        "tipo": "3"
+      },
+      {
+        "color": "B",
+        "tipo": "7"
+      },
+      {
+        "color": "G",
+        "tipo": "5"
+      },
+      {
+        "color": "R",
+        "tipo": "6"
+      },
+      {
+        "color": "R",
+        "tipo": "T2"
+      },
+      {
+        "color": "B",
+        "tipo": "6"
+      },
+      {
+        "color": "W",
+        "tipo": "CC"
+      },
+      {
+        "color": "G",
+        "tipo": "9"
+      },
+      {
+        "color": "B",
+        "tipo": "T2"
+      },
+      {
+        "color": "Y",
+        "tipo": "T2"
+      },
+      {
+        "color": "B",
+        "tipo": "8"
+      },
+      {
+        "color": "Y",
+        "tipo": "1"
+      },
+      {
+        "color": "W",
+        "tipo": "T4"
+      },
+      {
+        "color": "R",
+        "tipo": "8"
+      },
+      {
+        "color": "B",
+        "tipo": "5"
+      },
+      {
+        "color": "G",
+        "tipo": "2"
+      },
+      {
+        "color": "Y",
+        "tipo": "9"
+      },
+      {
+        "color": "R",
+        "tipo": "S"
+      },
+      {
+        "color": "G",
+        "tipo": "6"
+      },
+      {
+        "color": "R",
+        "tipo": "1"
+      },
+      {
+        "color": "B",
+        "tipo": "T2"
+      },
+      {
+        "color": "W",
+        "tipo": "T4"
+      },
+      {
+        "color": "G",
+        "tipo": "R"
+      },
+      {
+        "color": "Y",
+        "tipo": "4"
+      },
+      {
+        "color": "B",
+        "tipo": "9"
+      },
+      {
+        "color": "Y",
+        "tipo": "5"
+      },
+      {
+        "color": "G",
+        "tipo": "8"
+      },
+      {
+        "color": "R",
+        "tipo": "2"
+      },
+      {
+        "color": "B",
+        "tipo": "3"
+      },
+      {
+        "color": "R",
+        "tipo": "5"
+      },
+      {
+        "color": "Y",
+        "tipo": "6"
+      },
+      {
+        "color": "B",
+        "tipo": "7"
+      },
+      {
+        "color": "B",
+        "tipo": "S"
+      },
+      {
+        "color": "B",
+        "tipo": "3"
+      },
+      {
+        "color": "Y",
+        "tipo": "2"
+      },
+      {
+        "color": "Y",
+        "tipo": "S"
+      },
+      {
+        "color": "B",
+        "tipo": "0"
+      },
+      {
+        "color": "R",
+        "tipo": "4"
+      },
+      {
+        "color": "R",
+        "tipo": "2"
+      },
+      {
+        "color": "R",
+        "tipo": "0"
+      },
+      {
+        "color": "R",
+        "tipo": "7"
+      },
+      {
+        "color": "R",
+        "tipo": "S"
+      },
+      {
+        "color": "G",
+        "tipo": "8"
+      },
+      {
+        "color": "G",
+        "tipo": "7"
+      },
+      {
+        "color": "G",
+        "tipo": "S"
+      },
+      {
+        "color": "R",
+        "tipo": "1"
+      },
+      {
+        "color": "G",
+        "tipo": "4"
+      },
+      {
+        "color": "R",
+        "tipo": "8"
+      },
+      {
+        "color": "R",
+        "tipo": "R"
+      },
+      {
+        "color": "Y",
+        "tipo": "8"
+      },
+      {
+        "color": "Y",
+        "tipo": "9"
+      },
+      {
+        "color": "B",
+        "tipo": "4"
+      },
+      {
+        "color": "Y",
+        "tipo": "3"
+      },
+      {
+        "color": "B",
+        "tipo": "5"
+      },
+      {
+        "color": "W",
+        "tipo": "CC"
+      },
+      {
+        "color": "B",
+        "tipo": "6"
+      },
+      {
+        "color": "G",
+        "tipo": "4"
+      },
+      {
+        "color": "Y",
+        "tipo": "7"
+      },
+      {
+        "color": "G",
+        "tipo": "7"
+      },
+      {
+        "color": "R",
+        "tipo": "9"
+      },
+      {
+        "color": "R",
+        "tipo": "6"
+      },
+      {
+        "color": "R",
+        "tipo": "T2"
+      },
+      {
+        "color": "Y",
+        "tipo": "2"
+      },
+      {
+        "color": "Y",
+        "tipo": "5"
+      },
+      {
+        "color": "G",
+        "tipo": "6"
+      },
+      {
+        "color": "R",
+        "tipo": "R"
+      },
+      {
+        "color": "G",
+        "tipo": "R"
+      },
+      {
+        "color": "R",
+        "tipo": "7"
+      },
+      {
+        "color": "Y",
+        "tipo": "0"
+      },
+      {
+        "color": "R",
+        "tipo": "9"
+      },
+      {
+        "color": "Y",
+        "tipo": "7"
+      },
+      {
+        "color": "W",
+        "tipo": "T4"
+      },
+      {
+        "color": "G",
+        "tipo": "3"
+      },
+      {
+        "color": "G",
+        "tipo": "1"
+      },
+      {
+        "color": "R",
+        "tipo": "5"
+      },
+      {
+        "color": "B",
+        "tipo": "8"
+      },
+      {
+        "color": "R",
+        "tipo": "4"
+      },
+      {
+        "color": "W",
+        "tipo": "T4"
+      },
+      {
+        "color": "Y",
+        "tipo": "T2"
+      }
+    ]
+  },
+  "jugadores": [
+    {
+      "nombre": "leo",
+      "cartas": {
+        "mazo": [
+          {
+            "color": "Y",
+            "tipo": "R"
+          },
+          {
+            "color": "Y",
+            "tipo": "S"
+          },
+          {
+            "color": "Y",
+            "tipo": "8"
+          },
+          {
+            "color": "W",
+            "tipo": "CC"
+          },
+          {
+            "color": "Y",
+            "tipo": "4"
+          }
+        ]
+      }
+    },
+    {
+      "nombre": "CPU",
+      "cartas": {
+        "mazo": [
+          {
+            "color": "G",
+            "tipo": "5"
+          },
+          {
+            "color": "B",
+            "tipo": "R"
+          },
+          {
+            "color": "G",
+            "tipo": "3"
+          },
+          {
+            "color": "G",
+            "tipo": "1"
+          },
+          {
+            "color": "B",
+            "tipo": "R"
+          },
+          {
+            "color": "Y",
+            "tipo": "3"
+          },
+          {
+            "color": "Y",
+            "tipo": "1"
+          },
+          {
+            "color": "B",
+            "tipo": "1"
+          }
+        ]
+      }
+    }
+  ],
+  "turno": 0,
+  "colorActual": "G"
+}
