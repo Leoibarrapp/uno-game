@@ -1,12 +1,12 @@
 import java.util.Collections;
 import java.util.LinkedList;
 
-enum ColorCarta{ R, G, B ,Y };
+enum ColorCarta{ R, G, B, Y };
 
-public class MazoInicial extends LinkedList<Carta> {
-    LinkedList<Carta> mazo;
+public class Mazo {
+    private LinkedList<Carta> mazo;
 
-    public MazoInicial() {
+    public Mazo() {
         this.mazo = new LinkedList<>();
     }
 
@@ -18,43 +18,58 @@ public class MazoInicial extends LinkedList<Carta> {
         this.mazo = mazo;
     }
 
-    public LinkedList<Carta> crear() {
+    public Carta getTope() {
+        return mazo.getFirst();
+    }
 
+    public LinkedList<Carta> crear(){
 
         for (ColorCarta color : ColorCarta.values()) {
-            mazo.add(new Numero(color.name().charAt(0), "0"));
+            mazo.add(new CartaColor(color.name().charAt(0), "0"));
+
             for (int numero = 1; numero <= 9; numero++) {
-                mazo.add(new Numero(color.name().charAt(0), String.valueOf(numero)));
-                mazo.add(new Numero(color.name().charAt(0), String.valueOf(numero)));
+                mazo.add(new CartaColor(color.name().charAt(0), String.valueOf(numero)));
+                mazo.add(new CartaColor(color.name().charAt(0), String.valueOf(numero)));
             }
 
-            mazo.add(new Numero(color.name().charAt(0), "Toma 2"));
-            mazo.add(new Numero(color.name().charAt(0), "Toma 2"));
-            mazo.add(new Numero(color.name().charAt(0), "Reversa"));
-            mazo.add(new Numero(color.name().charAt(0), "Reversa"));
-            mazo.add(new Numero(color.name().charAt(0), "Saltar"));
-            mazo.add(new Numero(color.name().charAt(0), "Saltar"));
+            mazo.add(new CartaColor(color.name().charAt(0), "CT2")); mazo.add(new CartaColor(color.name().charAt(0), "CT2"));
+            mazo.add(new CartaColor(color.name().charAt(0), "R")); mazo.add(new CartaColor(color.name().charAt(0), "R"));
+            mazo.add(new CartaColor(color.name().charAt(0), "S")); mazo.add(new CartaColor(color.name().charAt(0), "S"));
+
         }
 
-        for (int i = 0; i < 4; i++) {
-            mazo.add(new Comodin("TomaCuatro"));
-            mazo.add(new Comodin("CambiaColor"));
+        for(int i = 0; i < 4; i ++){
+            mazo.add(new CartaComodin('C', "CT4"));
+            mazo.add(new CartaComodin('C', "CC"));
         }
 
         return mazo;
     }
 
-    public void imprimirMazo() {
-        System.out.println("El mazo es: ");
-        for (Carta carta : mazo) {
-            System.out.println("  " + carta);
+    public void barajear(){
+        Collections.shuffle(this.mazo);
+    }
+
+    public void agregarCarta(Carta carta) {
+        mazo.addFirst(carta);
+    }
+
+    public void eliminarCarta(Carta carta) {
+        if (mazo.isEmpty()) {
+            System.out.println("SE ACABARON");
+        }
+        else {
+            mazo.remove(carta);
         }
     }
 
-    public void barajear() {
-        Collections.shuffle(this.mazo);
+    public String toString() {
+        String s = "[ ";
+
+        for(int i = 0; i < mazo.size()-1; i++){
+            s = s + mazo.get(i) + ", ";
+        }
+
+        return s + mazo.getLast() + " ]";
     }
 }
-
-
-
