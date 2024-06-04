@@ -1,4 +1,7 @@
+import org.w3c.dom.Text;
+
 import java.util.LinkedList;
+import java.util.Scanner;
 
 public class Jugador{
     private String nombre;
@@ -34,6 +37,17 @@ public class Jugador{
         Carta carta =  juego.getMazoPila().getTope();
         this.cartas.agregarCarta(carta);
         juego.getMazoPila().eliminarCarta(carta);
+
+        /*if(carta.esJugable(juego)){
+            System.out.println("\tLa carta agarrada es jugable");
+            new Scanner(System.in);
+
+        }
+        else{
+            juego.cambiarTurno();
+        }
+
+         */
     }
 
     public Carta buscarCarta(String idCarta){
@@ -55,28 +69,36 @@ public class Jugador{
         return null;
     }
 
-    public boolean tieneCT2(){
+    public Carta buscarCartaTipo(String tipoCarta){
+        Carta c = null;
+
         for(Carta carta : cartas.getMazo()){
-            if(carta.getTipo().equals("CT2")){
-                return true;
+            if(carta.getTipo().equals(tipoCarta)){
+                c = carta;
             }
         }
-        return false;
+
+        return c;
     }
 
     public void cantarUno(){
-        System.out.println("UNO!");
+        System.out.println("\t" + TextColor.GREEN + this.getNombre() + " ha cantado UNO!" + TextColor.RESET);
     }
 
     public void jugar(Juego juego, Carta carta){
         juego.getMazoJuego().agregarCarta(carta);
         this.cartas.eliminarCarta(carta);
+
         if(cartas.getMazo().size() == 1){
             this.cantarUno();
         }
 
         juego.setColorActual(carta.getColor());
         carta.usar(juego);
+
+        if(cartas.getMazo().isEmpty()){
+            juego.setGanador(this);
+        }
     }
 
     public String toString(){

@@ -32,15 +32,14 @@ public class Mazo {
                 mazo.add(new CartaColor(color.name().charAt(0), String.valueOf(numero)));
             }
 
-            mazo.add(new CartaColor(color.name().charAt(0), "CT2")); mazo.add(new CartaColor(color.name().charAt(0), "CT2"));
+            mazo.add(new CartaColor(color.name().charAt(0), "T2")); mazo.add(new CartaColor(color.name().charAt(0), "T2"));
             mazo.add(new CartaColor(color.name().charAt(0), "R")); mazo.add(new CartaColor(color.name().charAt(0), "R"));
             mazo.add(new CartaColor(color.name().charAt(0), "S")); mazo.add(new CartaColor(color.name().charAt(0), "S"));
-
         }
 
         for(int i = 0; i < 4; i ++){
-            mazo.add(new CartaComodin('C', "CT4"));
-            mazo.add(new CartaComodin('C', "CC"));
+            mazo.add(new CartaComodin('W', "T4"));
+            mazo.add(new CartaComodin('W', "CC"));
         }
 
         return mazo;

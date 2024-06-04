@@ -38,7 +38,7 @@ public class Juego {
     public void iniciarJuego(){
         for(Jugador jugador : jugadores){
             Mazo mazo = new Mazo();
-            for(int i = 0; i < 7; i++){
+            for(int i = 0; i < 2; i++){
                 mazo.agregarCarta(mazoPila.getTope());
                 mazoPila.eliminarCarta(mazoPila.getTope());
             }
@@ -62,6 +62,10 @@ public class Juego {
         mazoJuego.agregarCarta(carta);
 
         colorActual = mazoJuego.getTope().getColor();
+    }
+
+    public void setGanador(Jugador ganador) {
+        this.ganador = ganador;
     }
 
     public Jugador getGanador() {
