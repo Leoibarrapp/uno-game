@@ -38,8 +38,7 @@ public class CartaColor extends Carta{
                 }
 
                 for(int i = 0; i < cant; i++){
-                    jugador.getCartas().agregarCarta(juego.getMazoPila().getTope());
-                    juego.getMazoPila().eliminarCarta(0);
+                    jugador.agarrarCarta(juego);
                 }
 
                 System.out.println();
