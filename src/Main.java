@@ -1,10 +1,15 @@
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+
+    public static void main(String[] args) throws IOException {
 
         Scanner cin = new Scanner(System.in);
 
@@ -26,28 +31,32 @@ public class Main {
         Juego juego = new Juego(pila, baraja, jugadores);
         juego.iniciarJuego();
 
-        String input;
-
+        String idCarta;
         int turno = 0;
+        Carta carta;
 
         while(juego.getGanador() == null){
-            if(baraja.getMazo().isEmpty()){
-                juego.reBarajear();
-            }
+            clearScreen();
+
+            System.out.println("\u001B[33m TURNO DE " + jugadores.get(juego.getTurno()).getNombre() + "\u001B[0m");
+            System.out.println(" Carta actual: " + pila.getTope());
+            System.out.println();
+
             switch(juego.getTurno()){
                 case 0:
                     System.out.println(cpu);
                     System.out.println(jugador);
                     System.out.println();
-                    System.out.println("Carta actual: " + pila.getTope());
-                    System.out.println();
+
                     if (jugador.puedeJugar(juego)) {
                         System.out.print("Escoge una carta -> ");
-                        input = cin.nextLine().trim();
-                        Carta carta = jugador.buscarCarta(input);
+                        idCarta = cin.nextLine();
+                        carta = jugador.buscarCarta(idCarta);
                         if (carta != null) {
                             if (carta.esJugable(juego)) {
+                                System.out.println("\t\u001B[33m" + jugador.getNombre() + "\u001B[0m" + " ha soltado la carta " + carta);
                                 jugador.jugar(juego, carta);
+
                             } else {
                                 System.out.println("La carta no es jugable");
                             }
@@ -55,33 +64,34 @@ public class Main {
                             System.out.println("Carta invalida");
                         }
                     } else {
-                        System.out.println("No tienes cartas que puedas jugar. Agarra una carta.");
+                        System.out.println("No tienes cartas que puedas jugar. Debes agarrar una carta de la pila.");
                         cin.nextLine();
-                        System.out.println();
                         jugador.agarrarCarta(juego);
+                        juego.setTurno(1);
                     }
 
-                    juego.setTurno(1);
-
+                    break;
                 case 1:
+
                     if(cpu.puedeJugar(juego)){
-                        cpu.jugar(juego, null);
-                        System.out.println("El jugador 2 ha soltado la carta " + pila.getTope());
-                        System.out.println();
+                        CPU aux = (CPU) cpu;
+                        carta = aux.escogerCarta(juego);
+                        System.out.println("\t\u001B[33mCPU\u001B[0m ha soltado la carta " + carta);
+                        cpu.jugar(juego, carta);
+
                     }
                     else{
-                        cpu.agarrarCarta(juego);
-                        System.out.println("El jugador 2 ha agarrado un mazo de la pila");
+                        System.out.println("\t\u001B[33mCPU\u001B[0m ha agarrado un mazo de la pila");
                         System.out.println();
+                        cpu.agarrarCarta(juego);
+                        juego.setTurno(0);
                     }
 
-                    juego.setTurno(0);
                 break;
             }
             if(baraja.getMazo().isEmpty()){
                 juego.reBarajear();
             }
-            System.out.println();
             System.out.println();
         }
 
