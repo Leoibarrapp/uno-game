@@ -15,6 +15,22 @@ public class CPU extends Jugador{
         return escogida;
     }
 
+    public char escogerColor(){
+        int numero = (int) (Math.random()*4);
+        char color = ' ';
+        switch(numero){
+            case 0: color = 'R';
+                break;
+            case 1: color = 'G';
+                break;
+            case 2: color = 'B';
+                break;
+            case 3: color = 'Y';
+                break;
+        }
+        return color;
+    }
+
     public void jugar(Juego juego, Carta c){
         c = this.escogerCarta(juego);
         super.jugar(juego, c);

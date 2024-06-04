@@ -64,6 +64,10 @@ public class Juego {
         colorActual = mazoJuego.getTope().getColor();
     }
 
+    public void setGanador(Jugador ganador) {
+        this.ganador = ganador;
+    }
+
     public Jugador getGanador() {
         return this.ganador;
     }

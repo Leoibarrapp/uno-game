@@ -34,6 +34,9 @@ public class Jugador{
         Carta carta =  juego.getMazoPila().getTope();
         this.cartas.agregarCarta(carta);
         juego.getMazoPila().eliminarCarta(carta);
+        if(carta.esJugable(juego)){
+            juego.cambiarTurno();
+        }
     }
 
     public Carta buscarCarta(String idCarta){
@@ -55,9 +58,9 @@ public class Jugador{
         return null;
     }
 
-    public boolean tieneCT2(){
+    public boolean tieneCarta(String tipoCarta){
         for(Carta carta : cartas.getMazo()){
-            if(carta.getTipo().equals("CT2")){
+            if(carta.getTipo().equals(tipoCarta)){
                 return true;
             }
         }
@@ -65,7 +68,7 @@ public class Jugador{
     }
 
     public void cantarUno(){
-        System.out.println("UNO!");
+        System.out.println(this.getNombre() + "ha cantado UNO!");
     }
 
     public void jugar(Juego juego, Carta carta){
@@ -74,9 +77,11 @@ public class Jugador{
         if(cartas.getMazo().size() == 1){
             this.cantarUno();
         }
-
         juego.setColorActual(carta.getColor());
         carta.usar(juego);
+        if(cartas.getMazo().size() == 0){
+            juego.setGanador(this);
+        }
     }
 
     public String toString(){

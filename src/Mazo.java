@@ -39,8 +39,8 @@ public class Mazo {
         }
 
         for(int i = 0; i < 4; i ++){
-            mazo.add(new CartaComodin('C', "CT4"));
-            mazo.add(new CartaComodin('C', "CC"));
+            mazo.add(new CartaComodin('W', "CT4"));
+            mazo.add(new CartaComodin('W', "CC"));
         }
 
         return mazo;

@@ -1,4 +1,4 @@
-
+import org.w3c.dom.Text;
 
 public abstract class Carta {
     private char color;
@@ -25,22 +25,22 @@ public abstract class Carta {
         String c = "";
         switch(color){
             case 'R':
-                c = "\u001B[31m";
+                c = TextColor.RED;
                 break;
             case 'G':
-                c = "\u001B[32m";
+                c = TextColor.GREEN;
                 break;
             case 'B':
-                c = "\u001B[34m";
+                c = TextColor.BLUE;
                 break;
             case 'Y':
-                c = "\u001B[33m";
+                c = TextColor.YELLOW;
                 break;
-            case 'C':
-                c = "\u001B[37m";
+            case 'W':
+                c = TextColor.GRAY;
                 break;
         }
 
-        return c + color + "_" + tipo + "\u001B[0m";
+        return c + color + "-" + tipo + TextColor.RESET;
     }
 }

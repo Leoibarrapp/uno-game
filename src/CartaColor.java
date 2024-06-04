@@ -16,19 +16,16 @@ public class CartaColor extends Carta{
     public void usar(Juego juego){
         switch(this.getTipo()){
             case "R","S":
-                System.out.println("\tRepites el turno");
+                System.out.println("\tRepite el turno");
                 break;
             case "CT2":
                 juego.cambiarTurno();
                 Jugador jugador = juego.getJugadores().get(juego.getTurno());
-                if(jugador.tieneCT2() == false){
-                    jugador.getCartas().agregarCarta(juego.getMazoPila().getTope());
-                        juego.getMazoPila().eliminarCarta(0);
-                    jugador.getCartas().agregarCarta(juego.getMazoPila().getTope());
-                        juego.getMazoPila().eliminarCarta(0);
-                    System.out.println("\t\u001B[33m"+ jugador.getNombre() + "\u001B[0m robó dos cartas");
-                    juego.cambiarTurno();
-                }
+
+                jugador.getCartas().agregarCarta(juego.getMazoPila().getTope()); juego.getMazoPila().eliminarCarta(0);
+                jugador.getCartas().agregarCarta(juego.getMazoPila().getTope()); juego.getMazoPila().eliminarCarta(0);
+
+                System.out.println("\t"+ TextColor.YELLOW + jugador.getNombre() + TextColor.RESET +" robó DOS cartas de la pila");
                 break;
             default:
                 juego.cambiarTurno();

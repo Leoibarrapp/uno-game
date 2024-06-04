@@ -9,18 +9,22 @@ public class CartaComodin extends Carta{
     }
 
     public void usar(Juego juego) {
-        juego.setColorActual('R');
-
         switch(this.getTipo()){
             case "CC":
 
                 break;
             case "CT4":
+                juego.cambiarTurno();
+                Jugador jugador = juego.getJugadores().get(juego.getTurno());
+
+                jugador.getCartas().agregarCarta(juego.getMazoPila().getTope()); juego.getMazoPila().eliminarCarta(0);
+                jugador.getCartas().agregarCarta(juego.getMazoPila().getTope()); juego.getMazoPila().eliminarCarta(0);
+                jugador.getCartas().agregarCarta(juego.getMazoPila().getTope()); juego.getMazoPila().eliminarCarta(0);
+                jugador.getCartas().agregarCarta(juego.getMazoPila().getTope()); juego.getMazoPila().eliminarCarta(0);
+
+                System.out.println("\t"+ TextColor.YELLOW + jugador.getNombre() + TextColor.RESET +" robó CUATRO cartas de la pila");
                 break;
         }
-
-        System.out.println("\tSe ha cambiado el color a\u001B[31m ROJO\u001B[0m");
-
         juego.cambiarTurno();
     }
 
