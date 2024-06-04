@@ -29,15 +29,17 @@ public class Main {
         String input;
 
         int turno = 0;
+
         while(juego.getGanador() == null){
+            if(baraja.getMazo().isEmpty()){
+                juego.reBarajear();
+            }
             switch(juego.getTurno()){
                 case 0:
-                    //System.out.println(baraja);
-
                     System.out.println(cpu);
                     System.out.println(jugador);
                     System.out.println();
-                    System.out.println("Carta actual: " + juego.getMazoJuego().getTope());
+                    System.out.println("Carta actual: " + pila.getTope());
                     System.out.println();
                     if (jugador.puedeJugar(juego)) {
                         System.out.print("Escoge una carta -> ");
@@ -64,7 +66,7 @@ public class Main {
                 case 1:
                     if(cpu.puedeJugar(juego)){
                         cpu.jugar(juego, null);
-                        System.out.println("El jugador 2 ha soltado la carta " + juego.getMazoJuego().getTope());
+                        System.out.println("El jugador 2 ha soltado la carta " + pila.getTope());
                         System.out.println();
                     }
                     else{
@@ -76,12 +78,14 @@ public class Main {
                     juego.setTurno(0);
                 break;
             }
-            System.out.println();
+            if(baraja.getMazo().isEmpty()){
+                juego.reBarajear();
+            }
             System.out.println();
             System.out.println();
         }
 
-        System.out.println("\u001B[31m" + "El ganador es "+ juego.getGanador());
+    //    System.out.println("\u001B[31m" + "El ganador es "+ juego.getGanador());
 
     }
 }

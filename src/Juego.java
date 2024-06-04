@@ -92,4 +92,16 @@ public class Juego {
     public void setTurno(int turno) {
         this.turno = turno;
     }
+
+    public void reBarajear(){
+        Carta carta;
+        int tamano = mazoJuego.getMazo().size();
+        for(int i = 1; i < tamano; i++){
+            carta = mazoJuego.getMazo().getLast();
+            mazoPila.agregarCarta(carta);
+            mazoJuego.getMazo().removeLast();
+        }
+
+        mazoPila.barajear();
+    }
 }
