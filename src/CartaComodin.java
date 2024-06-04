@@ -13,16 +13,28 @@ public class CartaComodin extends Carta{
             case "CC":
 
                 break;
-            case "CT4":
+            case "T4":
                 juego.cambiarTurno();
+                int cant = 4;
+
                 Jugador jugador = juego.getJugadores().get(juego.getTurno());
+                Carta carta = jugador.buscarCartaTipo("T4");
 
-                jugador.getCartas().agregarCarta(juego.getMazoPila().getTope()); juego.getMazoPila().eliminarCarta(0);
-                jugador.getCartas().agregarCarta(juego.getMazoPila().getTope()); juego.getMazoPila().eliminarCarta(0);
-                jugador.getCartas().agregarCarta(juego.getMazoPila().getTope()); juego.getMazoPila().eliminarCarta(0);
-                jugador.getCartas().agregarCarta(juego.getMazoPila().getTope()); juego.getMazoPila().eliminarCarta(0);
+                while(carta != null){
+                    System.out.println( "\t" + TextColor.YELLOW + jugador.getNombre() + TextColor.RESET + " ha respondido con otra carta " + TextColor.GREEN + "T4!" + TextColor.RESET );
+                    cant = cant + 4;
+                    juego.cambiarTurno();
+                    jugador = juego.getJugadores().get(juego.getTurno());
+                    carta = jugador.buscarCartaTipo("T4");
+                }
 
-                System.out.println("\t"+ TextColor.YELLOW + jugador.getNombre() + TextColor.RESET +" robó CUATRO cartas de la pila");
+                for(int i = 0; i < cant; i++){
+                    jugador.getCartas().agregarCarta(juego.getMazoPila().getTope());
+                    juego.getMazoPila().eliminarCarta(0);
+                }
+
+                System.out.println();
+                System.out.println("\t"+ TextColor.YELLOW + jugador.getNombre() + TextColor.RESET +" robó " + TextColor.YELLOW + cant + " cartas " + TextColor.RESET + "de la pila");
                 break;
         }
         juego.cambiarTurno();

@@ -1,3 +1,5 @@
+import org.w3c.dom.Text;
+
 import java.util.LinkedList;
 
 public class Jugador{
@@ -58,17 +60,20 @@ public class Jugador{
         return null;
     }
 
-    public boolean tieneCarta(String tipoCarta){
+    public Carta buscarCartaTipo(String tipoCarta){
+        Carta c = null;
+
         for(Carta carta : cartas.getMazo()){
             if(carta.getTipo().equals(tipoCarta)){
-                return true;
+                c = carta;
             }
         }
-        return false;
+
+        return c;
     }
 
     public void cantarUno(){
-        System.out.println(this.getNombre() + "ha cantado UNO!");
+        System.out.println("\t" + TextColor.GREEN + this.getNombre() + " ha cantado UNO!");
     }
 
     public void jugar(Juego juego, Carta carta){
@@ -79,7 +84,7 @@ public class Jugador{
         }
         juego.setColorActual(carta.getColor());
         carta.usar(juego);
-        if(cartas.getMazo().size() == 0){
+            if(cartas.getMazo().isEmpty()){
             juego.setGanador(this);
         }
     }

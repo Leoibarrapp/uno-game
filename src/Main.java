@@ -1,3 +1,5 @@
+import org.w3c.dom.Text;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -10,7 +12,6 @@ public class Main {
 
         System.out.print("Nombre: ");
         String nombre = cin.nextLine();
-        System.out.println();
 
         Jugador jugador = new Jugador(nombre);
         Jugador cpu = new CPU(); CPU auxCPU = (CPU) cpu;
@@ -19,7 +20,7 @@ public class Main {
 
         Mazo baraja = new Mazo();
         baraja.crear();
-        baraja.barajear();
+        //baraja.barajear();
 
         Mazo pila = new Mazo();
 
@@ -30,6 +31,9 @@ public class Main {
         int turno = 0;
         Carta carta;
         char colorEscogido = ' ';
+        juego.setTurno((int)(Math.random()+0.5));
+        System.out.println("Escogiendo aleatoriamente los turnos...");
+        System.out.println();
 
         while(juego.getGanador() == null){
 
@@ -60,16 +64,20 @@ public class Main {
                                         System.out.println("\tEl color escogido es invalido. Se ha cambiado el color por defecto a "+TextColor.RED+"ROJO"+TextColor.RESET);
                                         colorEscogido = 'R';
                                     }
-
+                                    jugador.jugar(juego, carta);
+                                    juego.setColorActual(colorEscogido);
                                 }
-                                jugador.jugar(juego, carta);
-                                juego.setColorActual(colorEscogido);
+                                else{
+                                    jugador.jugar(juego, carta);
+                                }
+
+
 
                             } else {
-                                System.out.println("La carta no es jugable");
+                                System.out.println("\tLa carta no es jugable");
                             }
                         } else {
-                            System.out.println("Carta invalida");
+                            System.out.println(TextColor.RED + "\tCarta invalida" + TextColor.RESET);
                         }
                     } else {
                         System.out.println("\tNo tienes cartas que puedas jugar. \n\tDebes "+TextColor.YELLOW+"agarrar una carta de la pila."+TextColor.RESET);
@@ -106,7 +114,9 @@ public class Main {
             System.out.println();
         }
 
-    //    System.out.println("\u001B[31m" + "El ganador es "+ juego.getGanador());
+        System.out.println();
+        System.out.println();
+        System.out.println(TextColor.GREEN + "El ganador es " + TextColor.YELLOW + juego.getGanador() + TextColor.RESET);
 
     }
 }

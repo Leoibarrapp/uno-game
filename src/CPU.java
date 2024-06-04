@@ -31,12 +31,7 @@ public class CPU extends Jugador{
         return color;
     }
 
-    public void jugar(Juego juego, Carta c){
-        c = this.escogerCarta(juego);
-        super.jugar(juego, c);
-    }
-
-   /* public String toString(){
+    /*public String toString(){
         String s = "CPU [...] \u001B[37m " + this.getCartas().getMazo().size() + " cartas restantes";
 
         if(this.getCartas().getMazo().size() == 1){
@@ -46,6 +41,8 @@ public class CPU extends Jugador{
         return s + "\u001B[0m";
     }
 
-    */
+     */
+
+
 
 }

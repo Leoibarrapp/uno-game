@@ -18,15 +18,32 @@ public class CartaColor extends Carta{
             case "R","S":
                 System.out.println("\tRepite el turno");
                 break;
-            case "CT2":
+            case "T2":
                 juego.cambiarTurno();
+                int cant = 2;
+
                 Jugador jugador = juego.getJugadores().get(juego.getTurno());
+                Carta carta = jugador.buscarCartaTipo("T2");
 
-                jugador.getCartas().agregarCarta(juego.getMazoPila().getTope()); juego.getMazoPila().eliminarCarta(0);
-                jugador.getCartas().agregarCarta(juego.getMazoPila().getTope()); juego.getMazoPila().eliminarCarta(0);
+                while(carta != null){
+                    System.out.println( "\t" + TextColor.YELLOW + jugador.getNombre() + TextColor.RESET + " ha respondido con otra carta " + TextColor.GREEN + "T2!" + TextColor.RESET );
 
-                System.out.println("\t"+ TextColor.YELLOW + jugador.getNombre() + TextColor.RESET +" robó DOS cartas de la pila");
-                break;
+                    cant = cant + 2;
+                    juego.cambiarTurno();
+                    jugador.getCartas().eliminarCarta(carta);
+                    juego.getMazoJuego().agregarCarta(carta);
+
+                    jugador = juego.getJugadores().get(juego.getTurno());
+                    carta = jugador.buscarCartaTipo("T2");
+                }
+
+                for(int i = 0; i < cant; i++){
+                    jugador.getCartas().agregarCarta(juego.getMazoPila().getTope());
+                    juego.getMazoPila().eliminarCarta(0);
+                }
+
+                System.out.println();
+                System.out.println("\t"+ TextColor.YELLOW + jugador.getNombre() + TextColor.RESET +" robó " + TextColor.YELLOW + cant + " cartas" + TextColor.RESET + " de la pila" + TextColor.RESET);
             default:
                 juego.cambiarTurno();
         }
