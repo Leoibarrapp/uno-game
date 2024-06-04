@@ -8,6 +8,10 @@ public class Jugador{
         this.nombre = nombre;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
     public Mazo getCartas() {
         return cartas;
     }
@@ -32,18 +36,32 @@ public class Jugador{
         juego.getMazoPila().eliminarCarta(carta);
     }
 
-    public Carta buscarCarta(String input){
-        char color = input.charAt(0);
-        //System.out.println(color);
-        String tipo = input.substring(2);
-        //System.out.println(tipo);
+    public Carta buscarCarta(String idCarta){
+        if(!idCarta.isEmpty()){
+            char color = idCarta.charAt(0);
+            //System.out.println(color);
+            if(idCarta.length() > 1){
+                String tipo = idCarta.substring(2);
+                //System.out.println(tipo);
 
-        for(Carta carta : cartas.getMazo()){
-            if((color == carta.getColor()) && (tipo.equals(carta.getTipo()))){
-                return carta;
+                for(Carta carta : cartas.getMazo()){
+                    if((color == carta.getColor()) && (tipo.equals(carta.getTipo()))){
+                        return carta;
+                    }
+                }
             }
+
         }
         return null;
+    }
+
+    public boolean tieneCT2(){
+        for(Carta carta : cartas.getMazo()){
+            if(carta.getTipo().equals("CT2")){
+                return true;
+            }
+        }
+        return false;
     }
 
     public void cantarUno(){
@@ -56,6 +74,9 @@ public class Jugador{
         if(cartas.getMazo().size() == 1){
             this.cantarUno();
         }
+
+        juego.setColorActual(carta.getColor());
+        carta.usar(juego);
     }
 
     public String toString(){

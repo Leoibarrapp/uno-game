@@ -6,6 +6,7 @@ public class Juego {
     private ArrayList<Jugador> jugadores;
     private Jugador ganador = null;
     private int turno;
+    private char colorActual;
 
     public Juego(Mazo mazoJuego, Mazo mazoPila, ArrayList<Jugador> jugadores) {
         this.mazoJuego = mazoJuego;
@@ -17,24 +18,21 @@ public class Juego {
         return mazoJuego;
     }
 
-    public void setMazoJuego(Mazo mazoJuego) {
-        this.mazoJuego = mazoJuego;
-    }
-
     public Mazo getMazoPila() {
         return mazoPila;
-    }
-
-    public void setMazoPila(Mazo mazoPila) {
-        this.mazoPila = mazoPila;
     }
 
     public ArrayList<Jugador> getJugadores() {
         return jugadores;
     }
 
-    public void setJugadores(ArrayList<Jugador> jugadores) {
-        this.jugadores = jugadores;
+    public void cambiarTurno(){
+        if(turno == 0){
+            turno = 1;
+        }
+        else{
+            turno = 0;
+        }
     }
 
     public void iniciarJuego(){
@@ -62,25 +60,10 @@ public class Juego {
 
         mazoPila.eliminarCarta(carta);
         mazoJuego.agregarCarta(carta);
-    }
-/*
-    public void jugada(Jugador jugador, Carta carta){
-        Carta tope = mazoJuego.getTope();
-        System.out.println(carta.getTipo());
-        System.out.println(tope.getTipo());
-        if(carta.getTipo().equals(tope.getTipo())){
 
-            mazoPila.agregarCarta(mazoPila.getTope());
-            System.out.println("Agregada a mazo");
-            jugador.getCartas().eliminarCarta(carta);
-            System.out.println("Eliminada de jugador");
-        }
-
-        if(jugador.getCartas().getMazo().isEmpty()){
-            this.ganador = jugador;
-        }
+        colorActual = mazoJuego.getTope().getColor();
     }
-*/
+
     public Jugador getGanador() {
         return this.ganador;
     }
@@ -91,5 +74,25 @@ public class Juego {
 
     public void setTurno(int turno) {
         this.turno = turno;
+    }
+
+    public void reBarajear(){
+        Carta carta;
+        int tamano = mazoJuego.getMazo().size();
+        for(int i = 1; i < tamano; i++){
+            carta = mazoJuego.getMazo().getLast();
+            mazoPila.agregarCarta(carta);
+            mazoJuego.getMazo().removeLast();
+        }
+
+        mazoPila.barajear();
+    }
+
+    public char getColorActual() {
+        return colorActual;
+    }
+
+    public void setColorActual(char colorActual) {
+        this.colorActual = colorActual;
     }
 }

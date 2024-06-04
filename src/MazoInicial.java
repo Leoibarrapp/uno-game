@@ -55,12 +55,11 @@ public class Mazo {
     }
 
     public void eliminarCarta(Carta carta) {
-        if (mazo.isEmpty()) {
-            System.out.println("SE ACABARON");
-        }
-        else {
-            mazo.remove(carta);
-        }
+        mazo.remove(carta);
+    }
+
+    public void eliminarCarta(int index) {
+        mazo.remove(index);
     }
 
     public String toString() {

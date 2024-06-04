@@ -4,17 +4,23 @@ public class CPU extends Jugador{
         super("CPU");
     }
 
-    public void jugar(Juego juego, Carta x){
+    public Carta escogerCarta(Juego juego){
+        Carta escogida = null;
         for(Carta carta : this.getCartas().getMazo()){
             if(carta.esJugable(juego)){
-                super.jugar(juego, carta);
+                escogida = carta;
                 break;
             }
         }
-
+        return escogida;
     }
 
-    public String toString(){
+    public void jugar(Juego juego, Carta c){
+        c = this.escogerCarta(juego);
+        super.jugar(juego, c);
+    }
+
+   /* public String toString(){
         String s = "CPU [...] \u001B[37m " + this.getCartas().getMazo().size() + " cartas restantes";
 
         if(this.getCartas().getMazo().size() == 1){
@@ -23,5 +29,7 @@ public class CPU extends Jugador{
 
         return s + "\u001B[0m";
     }
+
+    */
 
 }

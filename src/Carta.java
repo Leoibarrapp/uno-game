@@ -19,6 +19,8 @@ public abstract class Carta {
 
     public abstract boolean esJugable(Juego juego);
 
+    public abstract void usar(Juego juego);
+
     public String toString() {
         String c = "";
         switch(color){
