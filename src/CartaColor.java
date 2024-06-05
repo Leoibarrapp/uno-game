@@ -15,13 +15,22 @@ public class CartaColor extends Carta{
      * @return true si es jugable y false si no
      */
     public boolean esJugable(Juego juego){
-
         Carta tope = juego.getMazoJuego().getTope();
-        if( (this.getTipo().equals(tope.getTipo())) || (this.getColor() == juego.getColorActual()) ){
+        switch (this.getTipo()){
+            case "R","S","T2":
+                Jugador jugador = juego.getJugadores().get(juego.getTurno());
+                if(jugador.cartasRestantes() == 1){
+                    return false;
+                } else if ((this.getTipo().equals(tope.getTipo())) || (this.getColor() == juego.getColorActual()) ) {
+                    return true;
+                }
+            default:
+        if( (this.getTipo().equals(tope.getTipo())) || (this.getColor() == juego.getColorActual()) ) {
             return true;
-        }
-        return false;
-    }
+        }else
+            return false;
+
+    }}
 
     /**
      * Realiza la accion de la carta segun su tipo

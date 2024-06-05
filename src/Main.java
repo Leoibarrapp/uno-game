@@ -37,6 +37,14 @@ public class Main {
                     System.out.println("Gracias por jugar!");
             }
 
+        Jugador jugador = new Jugador(nombre);
+        Jugador cpu = new CPU();
+        Tiempo tiempo = new Tiempo();
+        CPU auxCPU = (CPU) cpu;
+        ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
+        jugadores.add(jugador);
+        jugadores.add(cpu);
+          
             if ((menu == '1') || (menu == '2')) {
                 System.out.print("Nombre: ");
                 String nombre = cin.nextLine();
@@ -54,6 +62,16 @@ public class Main {
 
                 Mazo pila = new Mazo();
 
+                String idCarta;
+                int turno = 0;
+                Carta carta;
+                char colorEscogido = ' ';
+                juego.setTurno((int) (Math.random() * 2));
+                System.out.println(TextColor.GREEN + "Escogiendo aleatoriamente los turnos..." + TextColor.RESET);
+                System.out.println();
+                tiempo.delay(200);
+                while (juego.getGanador() == null) {
+          
                 Juego juego = new Juego(pila, baraja, jugadores);
                 juego.iniciarJuego();
 
@@ -154,6 +172,7 @@ public class Main {
 
                     if (baraja.getMazo().isEmpty()) {
                         juego.reBarajear();
+                      
                     }
                     System.out.println();
 
@@ -170,6 +189,7 @@ public class Main {
 
                 System.out.println();
                 System.out.println();
+                  
                 if(juego.getGanador() != null){
                     System.out.println(TextColor.GREEN + "EL GANADOR ES " + TextColor.YELLOW + juego.getGanador().getNombre() + TextColor.RESET);
                 }

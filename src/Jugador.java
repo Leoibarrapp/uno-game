@@ -94,6 +94,9 @@ public class Jugador{
     }
 
 
+    public void jugar(Juego juego, Carta carta) {
+
+
     /**
      * Cuando la carta esJugable entonces se usa esta funcion
      * El jugador se coloca en el mazo del Juego y luego se realiza la accion correspondiente con usar()
@@ -101,25 +104,35 @@ public class Jugador{
      * @param carta es la carta a jugar
      */
     public void jugar(Juego juego, Carta carta){
+      
         juego.getMazoJuego().agregarCarta(carta);
         this.cartas.eliminarCarta(carta);
 
-        if(cartas.getMazo().size() == 1){
+        if (cartas.getMazo().size() == 1) {
             this.cantarUno();
         }
 
         juego.setColorActual(carta.getColor());
         carta.usar(juego);
 
-        if(cartas.getMazo().isEmpty()){
+        if (cartas.getMazo().isEmpty()) {
             juego.setGanador(this);
         }
     }
 
     /**
+     *@return la cantidad de cartas que le quedan al jugador
+     */
+    public int cartasRestantes(){
+        return cartas.getMazo().size();
+    }
+
+
+    /**
      * Sobreescribe toString() para imprimir la informacion de un jugador
      * @return el nombre del jugador + su mazo + la cantidad de cartas que le quedan
      */
+
     public String toString(){
         String s = nombre + " " + cartas + "\u001B[37m " + cartas.getMazo().size() + " cartas restantes";
 

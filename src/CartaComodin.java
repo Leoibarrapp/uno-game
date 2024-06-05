@@ -1,3 +1,4 @@
+
 public class CartaComodin extends Carta{
 
     /**
@@ -14,6 +15,10 @@ public class CartaComodin extends Carta{
      * @return los comodines siempre son jugables
      */
     public boolean esJugable(Juego juego) {
+        Jugador jugador = juego.getJugadores().get(juego.getTurno());
+            if (jugador.cartasRestantes() == 1)
+                return false;
+            else
         return true;
     }
 

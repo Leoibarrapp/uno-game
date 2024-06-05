@@ -2,8 +2,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 
 enum ColorCarta{ R, G, B, Y };
-
-public class Mazo {
+class Mazo {
     private LinkedList<Carta> mazo;
 
     public Mazo() {
