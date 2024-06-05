@@ -22,6 +22,10 @@ public class Mazo {
         return mazo.getFirst();
     }
 
+    /**
+     * Crea las 108 cartas del juego
+     * @return el mazo con las 108 cartas
+     */
     public LinkedList<Carta> crear(){
 
         for (ColorCarta color : ColorCarta.values()) {
@@ -45,22 +49,41 @@ public class Mazo {
         return mazo;
     }
 
+    /**
+     * barajea las cartas de un mazo
+     */
     public void barajear(){
         Collections.shuffle(this.mazo);
     }
 
+    /**
+     * agrega una carta al mazo
+     * @param carta la carta a agregar
+     */
     public void agregarCarta(Carta carta) {
         mazo.addFirst(carta);
     }
 
+    /**
+     * elimina una carta del mazo
+     * @param carta la carta a eliminar
+     */
     public void eliminarCarta(Carta carta) {
         mazo.remove(carta);
     }
 
+    /**
+     * elimina una carta del mazo
+     * @param index la posicion de la carta a eliminar
+     */
     public void eliminarCarta(int index) {
         mazo.remove(index);
     }
 
+    /**
+     * sobreescribe toString
+     * @return un string con todas las cartas contenidas en el mazo
+     */
     public String toString() {
         String s = "[ ";
 

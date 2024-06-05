@@ -1,8 +1,3 @@
-import org.w3c.dom.Text;
-
-import java.util.LinkedList;
-import java.util.Scanner;
-
 public class Jugador{
     private String nombre;
     private Mazo cartas;
@@ -23,6 +18,12 @@ public class Jugador{
         this.cartas = cartas;
     }
 
+
+    /**
+     * Verifica si el jugador tiene alguna carta que pueda colocar encima del mazo de Juego
+     * @param juego necesita acceder al tope del mazo juego actual
+     * @return si retorna falso entonces el jugador pierde el turno y agarra una carta
+     */
     public boolean puedeJugar(Juego juego){
         Carta tope = juego.getMazoJuego().getTope();
         for(Carta carta : cartas.getMazo()) {
@@ -33,23 +34,22 @@ public class Jugador{
         return false;
     }
 
+    /**
+     * Si el jugador no puede jugar ninguna carta (puedeJugar retorna falso) entonces se aplica este metodo
+     * Al mazo del jugador se le agrega una carta de la baraja
+     * @param juego necesita acceso a la baraja
+     */
     public void agarrarCarta(Juego juego){
         Carta carta =  juego.getMazoPila().getTope();
         this.cartas.agregarCarta(carta);
         juego.getMazoPila().eliminarCarta(carta);
-
-        /*if(carta.esJugable(juego)){
-            System.out.println("\tLa carta agarrada es jugable");
-            new Scanner(System.in);
-
-        }
-        else{
-            juego.cambiarTurno();
-        }
-
-         */
     }
 
+    /**
+     * Busca si la carta colocada por el jugador se encuentra en su mazo
+     * @param idCarta es el identificador de una carta, ejemplo: B-7
+     * @return la carta, si no la encuentra devuelve null
+     */
     public Carta buscarCarta(String idCarta){
         if(!idCarta.isEmpty()){
             char color = idCarta.charAt(0);
@@ -69,7 +69,12 @@ public class Jugador{
         return null;
     }
 
-    public Carta buscarCartaTipo(String tipoCarta){
+    /**
+     * Busca una carta de un tipo especifico en lascartas del jugador
+     * @param tipoCarta es el tipo de la carta, ejemplo: T4
+     * @return la carta, si no la encuentra devuelve null
+     */
+    public Carta buscarCartaSegunTipo(String tipoCarta){
         Carta c = null;
 
         for(Carta carta : cartas.getMazo()){
@@ -81,10 +86,20 @@ public class Jugador{
         return c;
     }
 
+    /**
+     * Cuando a un jugador le queda una sola carta, canta UNO
+     */
     public void cantarUno(){
         System.out.println("\t" + TextColor.GREEN + this.getNombre() + " ha cantado UNO!" + TextColor.RESET);
     }
 
+
+    /**
+     * Cuando la carta esJugable entonces se usa esta funcion
+     * El jugador se coloca en el mazo del Juego y luego se realiza la accion correspondiente con usar()
+     * @param juego
+     * @param carta es la carta a jugar
+     */
     public void jugar(Juego juego, Carta carta){
         juego.getMazoJuego().agregarCarta(carta);
         this.cartas.eliminarCarta(carta);
@@ -101,6 +116,10 @@ public class Jugador{
         }
     }
 
+    /**
+     * Sobreescribe toString() para imprimir la informacion de un jugador
+     * @return el nombre del jugador + su mazo + la cantidad de cartas que le quedan
+     */
     public String toString(){
         String s = nombre + " " + cartas + "\u001B[37m " + cartas.getMazo().size() + " cartas restantes";
 
