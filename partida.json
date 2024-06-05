@@ -2,155 +2,131 @@
   "mazoJuego": {
     "mazo": [
       {
-        "color": "Y",
-        "tipo": "7"
-      },
-      {
-        "color": "Y",
-        "tipo": "1"
-      },
-      {
-        "color": "Y",
-        "tipo": "6"
-      },
-      {
-        "color": "Y",
-        "tipo": "S"
-      },
-      {
-        "color": "Y",
-        "tipo": "9"
-      },
-      {
-        "color": "Y",
-        "tipo": "4"
-      },
-      {
-        "color": "Y",
-        "tipo": "4"
-      },
-      {
-        "color": "Y",
-        "tipo": "5"
-      },
-      {
-        "color": "G",
-        "tipo": "5"
-      },
-      {
-        "color": "R",
-        "tipo": "5"
-      },
-      {
-        "color": "R",
-        "tipo": "R"
-      },
-      {
-        "color": "R",
-        "tipo": "2"
-      },
-      {
         "color": "B",
-        "tipo": "2"
-      },
-      {
-        "color": "B",
-        "tipo": "S"
-      },
-      {
-        "color": "W",
-        "tipo": "CC"
-      },
-      {
-        "color": "R",
-        "tipo": "T2"
-      },
-      {
-        "color": "Y",
-        "tipo": "T2"
-      },
-      {
-        "color": "R",
-        "tipo": "T2"
-      },
-      {
-        "color": "G",
-        "tipo": "T2"
-      },
-      {
-        "color": "G",
         "tipo": "3"
       },
       {
-        "color": "G",
-        "tipo": "7"
-      },
-      {
-        "color": "G",
-        "tipo": "7"
-      },
-      {
         "color": "B",
-        "tipo": "7"
-      },
-      {
-        "color": "W",
-        "tipo": "T4"
-      },
-      {
-        "color": "G",
-        "tipo": "9"
-      },
-      {
-        "color": "G",
-        "tipo": "0"
-      },
-      {
-        "color": "G",
-        "tipo": "2"
-      },
-      {
-        "color": "G",
-        "tipo": "8"
-      },
-      {
-        "color": "G",
-        "tipo": "5"
-      },
-      {
-        "color": "R",
-        "tipo": "5"
+        "tipo": "6"
       }
     ]
   },
   "mazoPila": {
     "mazo": [
       {
-        "color": "R",
-        "tipo": "3"
-      },
-      {
-        "color": "G",
-        "tipo": "T2"
-      },
-      {
-        "color": "B",
-        "tipo": "0"
-      },
-      {
-        "color": "Y",
-        "tipo": "3"
-      },
-      {
         "color": "G",
         "tipo": "4"
       },
       {
-        "color": "Y",
+        "color": "R",
+        "tipo": "3"
+      },
+      {
+        "color": "W",
+        "tipo": "T4"
+      },
+      {
+        "color": "W",
+        "tipo": "T4"
+      },
+      {
+        "color": "B",
         "tipo": "S"
       },
       {
+        "color": "Y",
+        "tipo": "T2"
+      },
+      {
+        "color": "Y",
+        "tipo": "5"
+      },
+      {
         "color": "R",
+        "tipo": "2"
+      },
+      {
+        "color": "R",
+        "tipo": "1"
+      },
+      {
+        "color": "W",
+        "tipo": "CC"
+      },
+      {
+        "color": "G",
+        "tipo": "5"
+      },
+      {
+        "color": "B",
+        "tipo": "4"
+      },
+      {
+        "color": "R",
+        "tipo": "R"
+      },
+      {
+        "color": "B",
+        "tipo": "T2"
+      },
+      {
+        "color": "W",
+        "tipo": "CC"
+      },
+      {
+        "color": "Y",
+        "tipo": "8"
+      },
+      {
+        "color": "G",
+        "tipo": "2"
+      },
+      {
+        "color": "Y",
+        "tipo": "3"
+      },
+      {
+        "color": "G",
+        "tipo": "9"
+      },
+      {
+        "color": "B",
+        "tipo": "2"
+      },
+      {
+        "color": "Y",
+        "tipo": "7"
+      },
+      {
+        "color": "Y",
+        "tipo": "4"
+      },
+      {
+        "color": "Y",
+        "tipo": "0"
+      },
+      {
+        "color": "G",
+        "tipo": "1"
+      },
+      {
+        "color": "B",
+        "tipo": "5"
+      },
+      {
+        "color": "G",
+        "tipo": "8"
+      },
+      {
+        "color": "B",
+        "tipo": "R"
+      },
+      {
+        "color": "G",
+        "tipo": "6"
+      },
+      {
+        "color": "B",
         "tipo": "1"
       },
       {
@@ -159,23 +135,95 @@
       },
       {
         "color": "B",
-        "tipo": "3"
+        "tipo": "7"
       },
       {
-        "color": "B",
-        "tipo": "S"
-      },
-      {
-        "color": "R",
-        "tipo": "3"
+        "color": "G",
+        "tipo": "0"
       },
       {
         "color": "R",
-        "tipo": "S"
+        "tipo": "0"
       },
       {
-        "color": "B",
+        "color": "R",
+        "tipo": "2"
+      },
+      {
+        "color": "R",
+        "tipo": "5"
+      },
+      {
+        "color": "R",
+        "tipo": "7"
+      },
+      {
+        "color": "Y",
+        "tipo": "8"
+      },
+      {
+        "color": "G",
+        "tipo": "3"
+      },
+      {
+        "color": "R",
         "tipo": "4"
+      },
+      {
+        "color": "G",
+        "tipo": "6"
+      },
+      {
+        "color": "R",
+        "tipo": "S"
+      },
+      {
+        "color": "G",
+        "tipo": "S"
+      },
+      {
+        "color": "R",
+        "tipo": "4"
+      },
+      {
+        "color": "Y",
+        "tipo": "6"
+      },
+      {
+        "color": "R",
+        "tipo": "8"
+      },
+      {
+        "color": "Y",
+        "tipo": "4"
+      },
+      {
+        "color": "Y",
+        "tipo": "1"
+      },
+      {
+        "color": "B",
+        "tipo": "8"
+      },
+      {
+        "color": "B",
+        "tipo": "2"
+      },
+      {
+        "color": "G",
+        "tipo": "R"
+      },
+      {
+        "color": "B",
+        "tipo": "0"
+      },
+      {
+        "color": "B",
+        "tipo": "R"
+      },
+      {
+        "color": "W",
+        "tipo": "T4"
       },
       {
         "color": "G",
@@ -183,19 +231,59 @@
       },
       {
         "color": "Y",
-        "tipo": "0"
+        "tipo": "2"
+      },
+      {
+        "color": "B",
+        "tipo": "1"
       },
       {
         "color": "Y",
-        "tipo": "6"
+        "tipo": "1"
+      },
+      {
+        "color": "R",
+        "tipo": "T2"
+      },
+      {
+        "color": "Y",
+        "tipo": "S"
+      },
+      {
+        "color": "Y",
+        "tipo": "T2"
       },
       {
         "color": "G",
+        "tipo": "5"
+      },
+      {
+        "color": "R",
+        "tipo": "8"
+      },
+      {
+        "color": "Y",
+        "tipo": "R"
+      },
+      {
+        "color": "Y",
+        "tipo": "R"
+      },
+      {
+        "color": "B",
+        "tipo": "3"
+      },
+      {
+        "color": "B",
+        "tipo": "8"
+      },
+      {
+        "color": "B",
         "tipo": "6"
       },
       {
-        "color": "W",
-        "tipo": "CC"
+        "color": "B",
+        "tipo": "7"
       },
       {
         "color": "W",
@@ -203,30 +291,34 @@
       },
       {
         "color": "R",
-        "tipo": "R"
+        "tipo": "7"
+      },
+      {
+        "color": "W",
+        "tipo": "CC"
       },
       {
         "color": "Y",
-        "tipo": "1"
+        "tipo": "2"
       },
       {
         "color": "R",
-        "tipo": "9"
-      },
-      {
-        "color": "B",
-        "tipo": "1"
+        "tipo": "3"
       },
       {
         "color": "R",
         "tipo": "6"
       },
       {
-        "color": "B",
-        "tipo": "6"
+        "color": "G",
+        "tipo": "3"
       },
       {
-        "color": "Y",
+        "color": "B",
+        "tipo": "4"
+      },
+      {
+        "color": "B",
         "tipo": "9"
       },
       {
@@ -234,215 +326,99 @@
         "tipo": "5"
       },
       {
-        "color": "Y",
-        "tipo": "R"
-      },
-      {
-        "color": "Y",
-        "tipo": "2"
-      },
-      {
-        "color": "W",
-        "tipo": "T4"
-      },
-      {
-        "color": "B",
+        "color": "R",
         "tipo": "R"
       },
       {
         "color": "R",
-        "tipo": "6"
-      },
-      {
-        "color": "Y",
-        "tipo": "7"
-      },
-      {
-        "color": "W",
-        "tipo": "CC"
-      },
-      {
-        "color": "B",
-        "tipo": "2"
-      },
-      {
-        "color": "Y",
-        "tipo": "T2"
-      },
-      {
-        "color": "Y",
-        "tipo": "8"
-      },
-      {
-        "color": "R",
-        "tipo": "1"
-      },
-      {
-        "color": "Y",
-        "tipo": "8"
-      },
-      {
-        "color": "G",
-        "tipo": "R"
-      },
-      {
-        "color": "B",
-        "tipo": "9"
-      },
-      {
-        "color": "G",
         "tipo": "S"
       },
       {
-        "color": "B",
-        "tipo": "3"
-      },
-      {
-        "color": "G",
-        "tipo": "8"
-      },
-      {
-        "color": "G",
-        "tipo": "3"
-      },
-      {
-        "color": "W",
-        "tipo": "T4"
-      },
-      {
         "color": "G",
         "tipo": "2"
       },
       {
-        "color": "R",
-        "tipo": "8"
-      },
-      {
-        "color": "R",
-        "tipo": "7"
-      },
-      {
-        "color": "B",
-        "tipo": "5"
-      },
-      {
-        "color": "G",
+        "color": "Y",
         "tipo": "6"
       },
       {
-        "color": "G",
-        "tipo": "1"
-      },
-      {
         "color": "R",
-        "tipo": "4"
-      },
-      {
-        "color": "B",
-        "tipo": "1"
-      },
-      {
-        "color": "G",
-        "tipo": "1"
-      },
-      {
-        "color": "R",
-        "tipo": "7"
-      },
-      {
-        "color": "R",
-        "tipo": "4"
-      },
-      {
-        "color": "B",
-        "tipo": "6"
-      },
-      {
-        "color": "Y",
-        "tipo": "2"
-      },
-      {
-        "color": "B",
-        "tipo": "8"
-      },
-      {
-        "color": "Y",
-        "tipo": "3"
-      },
-      {
-        "color": "R",
-        "tipo": "0"
-      },
-      {
-        "color": "B",
-        "tipo": "4"
-      },
-      {
-        "color": "B",
         "tipo": "T2"
       },
       {
+        "color": "G",
+        "tipo": "8"
+      },
+      {
         "color": "B",
+        "tipo": "S"
+      },
+      {
+        "color": "R",
+        "tipo": "6"
+      },
+      {
+        "color": "R",
         "tipo": "9"
       },
       {
-        "color": "B",
-        "tipo": "T2"
+        "color": "Y",
+        "tipo": "7"
       },
       {
         "color": "G",
-        "tipo": "R"
+        "tipo": "4"
       },
       {
         "color": "W",
         "tipo": "CC"
       },
       {
-        "color": "G",
-        "tipo": "4"
+        "color": "R",
+        "tipo": "1"
       },
       {
         "color": "Y",
-        "tipo": "R"
-      },
-      {
-        "color": "R",
-        "tipo": "2"
-      },
-      {
-        "color": "B",
-        "tipo": "R"
-      },
-      {
-        "color": "B",
-        "tipo": "7"
-      },
-      {
-        "color": "R",
         "tipo": "9"
+      },
+      {
+        "color": "G",
+        "tipo": "T2"
       }
     ]
   },
   "jugadores": [
     {
-      "nombre": "Leo",
+      "nombre": "Jesus",
       "cartas": {
         "mazo": [
           {
-            "color": "R",
-            "tipo": "8"
+            "color": "G",
+            "tipo": "T2"
+          },
+          {
+            "color": "Y",
+            "tipo": "3"
+          },
+          {
+            "color": "B",
+            "tipo": "9"
           },
           {
             "color": "R",
-            "tipo": "S"
+            "tipo": "5"
+          },
+          {
+            "color": "G",
+            "tipo": "7"
+          },
+          {
+            "color": "R",
+            "tipo": "9"
           },
           {
             "color": "G",
             "tipo": "S"
-          },
-          {
-            "color": "B",
-            "tipo": "8"
           }
         ]
       }
@@ -450,16 +426,35 @@
     {
       "nombre": "CPU",
       "cartas": {
-        "mazo": []
+        "mazo": [
+          {
+            "color": "Y",
+            "tipo": "S"
+          },
+          {
+            "color": "Y",
+            "tipo": "9"
+          },
+          {
+            "color": "B",
+            "tipo": "T2"
+          },
+          {
+            "color": "G",
+            "tipo": "1"
+          },
+          {
+            "color": "G",
+            "tipo": "7"
+          },
+          {
+            "color": "G",
+            "tipo": "R"
+          }
+        ]
       }
     }
   ],
-  "ganador": {
-    "nombre": "CPU",
-    "cartas": {
-      "mazo": []
-    }
-  },
   "turno": 0,
-  "colorActual": "Y"
+  "colorActual": "B"
 }

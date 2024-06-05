@@ -16,12 +16,21 @@ public class Main {
 
         while(menu != '3') {
             System.out.println();
-            System.out.println(TextColor.YELLOW + "BIENENIDO AL JUEGO UNO" + TextColor.RESET);
+            System.out.println(TextColor.YELLOW + "     BIENENIDO AL " + TextColor.RESET);
+            Tiempo.delay(500);
+            System.out.print("        ██╗██╗   ██╗███████╗ ██████╗  ██████╗     ██╗   ██╗███╗   ██╗ ██████╗ \n");Tiempo.delay(200);
+            System.out.print("        ██║██║   ██║██╔════╝██╔════╝ ██╔═══██╗    ██║   ██║████╗  ██║██╔═══██╗\n");Tiempo.delay(200);
+            System.out.print("        ██║██║   ██║█████╗  ██║  ███╗██║   ██║    ██║   ██║██╔██╗ ██║██║   ██║\n");Tiempo.delay(200);
+            System.out.print("   ██   ██║██║   ██║██╔══╝  ██║   ██║██║   ██║    ██║   ██║██║╚██╗██║██║   ██║\n");Tiempo.delay(200);
+            System.out.print("   ╚█████╔╝╚██████╔╝███████╗╚██████╔╝╚██████╔╝    ╚██████╔╝██║ ╚████║╚██████╔╝\n");Tiempo.delay(200);
+            System.out.print("    ╚════╝  ╚═════╝ ╚══════╝ ╚═════╝  ╚═════╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ \n");Tiempo.delay(200);
             System.out.println();
-            System.out.println("1. Iniciar partida nueva");
-            System.out.println("2. Jugar partida anterior");
-            System.out.println("3. Salir");
-            System.out.println();
+            System.out.print(TextColor.YELLOW+"1."+TextColor.RESET);
+            System.out.println(" Iniciar partida nueva");
+            System.out.print(TextColor.BLUE+" 2."+TextColor.RESET);
+            System.out.println(" Jugar partida anterior");
+            System.out.print(TextColor.GREEN+"  3."+TextColor.RESET);
+            System.out.println(" Salir");
             System.out.print("Opcion -> ");
             menu = cin.nextLine().charAt(0);
             System.out.println();
@@ -72,7 +81,9 @@ public class Main {
                     while (juego.getGanador() == null) {
 
                         System.out.println(TextColor.YELLOW + "TURNO DE " + jugadores.get(juego.getTurno()).getNombre() + TextColor.RESET);
+                        Tiempo.delay(200);
                         System.out.println("Carta actual: " + pila.getTope());
+                        Tiempo.delay(200);
                         System.out.println();
 
                         switch (juego.getTurno()) {
@@ -82,7 +93,9 @@ public class Main {
                                 System.out.println();
 
                                 if (jugador.puedeJugar(juego)) {
+                                    Tiempo.delay(200);
                                     System.out.println("\tEscriba " + TextColor.RED + "0 " + TextColor.RESET + "para " + TextColor.RED + "salir " + TextColor.RESET);
+                                    Tiempo.delay(200);
                                     System.out.print("\tEscoge una carta  -> ");
                                     idCarta = cin.nextLine();
                                     if (Objects.equals(idCarta, "0")) {
@@ -93,12 +106,15 @@ public class Main {
                                         if (carta.esJugable(juego)) {
                                             System.out.println("\t" + TextColor.YELLOW + jugador.getNombre() + TextColor.RESET + " ha soltado la carta " + carta);
                                             if (carta instanceof CartaComodin) {
-                                                System.out.print("\tEscoge un color:  " + TextColor.RED + " [R] ROJO  " + TextColor.GREEN + " [G] VERDE  " + TextColor.BLUE + " [B] AZUL  " + TextColor.YELLOW + " [Y] AMARILLO  " + TextColor.RESET + " -> ");
+                                                Tiempo.delay(200);
+                                                System.out.print("\tEscoge un color:  "+TextColor.RED + " [R] ROJO  " + TextColor.GREEN + " [G] VERDE  " + TextColor.BLUE + " [B] AZUL  " + TextColor.YELLOW + " [Y] AMARILLO  " + TextColor.RESET + " -> ");
                                                 colorEscogido = cin.nextLine().charAt(0);
                                                 if ((colorEscogido == 'R') || (colorEscogido == 'G') || (colorEscogido == 'B') || (colorEscogido == 'Y')) {
+                                                    Tiempo.delay(200);
                                                     System.out.println("\tSe ha cambiado el color a '" + colorEscogido + "'");
                                                 } else {
                                                     System.out.println("\tEl color escogido es invalido. Se ha cambiado el color por defecto a " + TextColor.RED + "ROJO" + TextColor.RESET);
+                                                    Tiempo.delay(200);
                                                     colorEscogido = 'R';
                                                 }
                                                 jugador.jugar(juego, carta);
@@ -114,11 +130,13 @@ public class Main {
                                         System.out.println(TextColor.RED + "\tCarta invalida" + TextColor.RESET);
                                     }
                                 } else {
+                                    Tiempo.delay(200);
                                     System.out.println("\tNo tienes cartas que puedas jugar. \n\tDebes " + TextColor.YELLOW + "agarrar una carta de la pila." + TextColor.RESET);
                                     cin.nextLine();
                                     jugador.agarrarCarta(juego);
                                     carta = jugador.getCartas().getTope();
                                     if (carta.esJugable(juego)) {
+                                        Tiempo.delay(200);
                                         System.out.println("\tPuedes jugar la carta!");
                                     } else {
                                         juego.cambiarTurno();
@@ -130,6 +148,7 @@ public class Main {
 
                                 if (cpu.puedeJugar(juego)) {
                                     carta = auxCPU.escogerCarta(juego);
+                                    Tiempo.delay(200);
                                     System.out.println("\t" + TextColor.YELLOW + "CPU" + TextColor.RESET + " ha soltado la carta " + carta);
                                     cpu.jugar(juego, carta);
                                     if (carta instanceof CartaComodin) {
@@ -174,13 +193,20 @@ public class Main {
                 System.out.println();
                   
                 if(juego.getGanador() != null){
+                    Tiempo.delay(200);
                     System.out.println(TextColor.GREEN + "EL GANADOR ES " + TextColor.YELLOW + juego.getGanador().getNombre() + TextColor.RESET);
                 }
 
-                System.out.println("Volvera al menu principal");
+                System.out.println("Volver al menu principal");
             }
         }
         System.out.println();
-        System.out.println( TextColor.GREEN + "Gracias por jugar con nosotros");
+        System.out.println( TextColor.GREEN + "Gracias por jugar con nosotros"+TextColor.RESET);
+        System.out.println(" ██████╗ ██████╗  █████╗  ██████╗██╗ █████╗ ███████╗");
+        System.out.println("██╔════╝ ██╔══██╗██╔══██╗██╔════╝██║██╔══██╗██╔════╝");
+        System.out.println("██║  ███╗██████╔╝███████║██║     ██║███████║███████╗");
+        System.out.println("██║   ██║██╔══██╗██╔══██║██║     ██║██╔══██║╚════██║");
+        System.out.println("╚██████╔╝██║  ██║██║  ██║╚██████╗██║██║  ██║███████║");
+        System.out.println(" ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝╚═╝  ╚═╝╚══════╝");
     }
 }
