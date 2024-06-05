@@ -93,10 +93,6 @@ public class Jugador{
         System.out.println("\t" + TextColor.GREEN + this.getNombre() + " ha cantado UNO!" + TextColor.RESET);
     }
 
-
-    public void jugar(Juego juego, Carta carta) {
-
-
     /**
      * Cuando la carta esJugable entonces se usa esta funcion
      * El jugador se coloca en el mazo del Juego y luego se realiza la accion correspondiente con usar()

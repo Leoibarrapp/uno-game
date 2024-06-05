@@ -11,6 +11,7 @@ public class CartaColor extends Carta{
 
     /**
      * Se compara la carta con la carta tope del juego para validar si se puede jugar
+     * Si solo queda una carta y es comodin, entonces no se puede jugar
      * @param juego Se le pasa el juego para verificar el tope actual
      * @return true si es jugable y false si no
      */
@@ -21,8 +22,9 @@ public class CartaColor extends Carta{
                 Jugador jugador = juego.getJugadores().get(juego.getTurno());
                 if(jugador.cartasRestantes() == 1){
                     return false;
-                } else if ((this.getTipo().equals(tope.getTipo())) || (this.getColor() == juego.getColorActual()) ) {
-                    return true;
+                } else
+                    if ((this.getTipo().equals(tope.getTipo())) || (this.getColor() == juego.getColorActual()) ) {
+                        return true;
                 }
             default:
         if( (this.getTipo().equals(tope.getTipo())) || (this.getColor() == juego.getColorActual()) ) {

@@ -1,7 +1,11 @@
 import java.util.Collections;
 import java.util.LinkedList;
 
+/**
+ * los 4 colores disponibles para crear las CartaColor
+ */
 enum ColorCarta{ R, G, B, Y };
+
 class Mazo {
     private LinkedList<Carta> mazo;
 

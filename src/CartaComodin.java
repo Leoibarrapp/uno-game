@@ -12,13 +12,13 @@ public class CartaComodin extends Carta{
 
     /**
      * @param juego el juego
-     * @return los comodines siempre son jugables
+     * @return los comodines siempre son jugables excepto que sea la ultima carta de mazo
      */
     public boolean esJugable(Juego juego) {
         Jugador jugador = juego.getJugadores().get(juego.getTurno());
-            if (jugador.cartasRestantes() == 1)
+            if(jugador.cartasRestantes() == 1){
                 return false;
-            else
+            }
         return true;
     }
 
