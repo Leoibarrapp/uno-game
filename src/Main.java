@@ -31,6 +31,7 @@ public class Main {
 
         Jugador jugador = new Jugador(nombre);
         Jugador cpu = new CPU();
+        Tiempo tiempo = new Tiempo();
         CPU auxCPU = (CPU) cpu;
         ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
         jugadores.add(jugador);
@@ -52,7 +53,7 @@ public class Main {
         juego.setTurno((int) (Math.random() * 2));
         System.out.println(TextColor.GREEN + "Escogiendo aleatoriamente los turnos..." + TextColor.RESET);
         System.out.println();
-
+        tiempo.delay(200);
         while (juego.getGanador() == null) {
 
             System.out.println(TextColor.YELLOW + "TURNO DE " + jugadores.get(juego.getTurno()).getNombre() + TextColor.RESET);
@@ -64,13 +65,12 @@ public class Main {
                     System.out.println(cpu);
                     System.out.println(jugador);
                     System.out.println();
-
                     if (jugador.puedeJugar(juego)) {
                         System.out.print("\tEscoge una carta -> ");
                         idCarta = cin.nextLine();
                         carta = jugador.buscarCarta(idCarta);
                         if (carta != null) {
-                            if (carta.esJugable(juego)) {
+                            if (carta.esJugable(juego) == true) {
                                 System.out.println("\t" + TextColor.YELLOW + jugador.getNombre() + TextColor.RESET + " ha soltado la carta " + carta);
                                 if (carta instanceof CartaComodin) {
                                     System.out.print("\tEscoge un color:  " + TextColor.RED + " [R] ROJO  " + TextColor.GREEN + " [G] VERDE  " + TextColor.BLUE + " [B] AZUL  " + TextColor.YELLOW + " [Y] AMARILLO  " + TextColor.RESET + " -> ");
@@ -117,7 +117,6 @@ public class Main {
                             System.out.println("\tSe ha cambiado el color a '" + colorEscogido + "'");
                             juego.setColorActual(colorEscogido);
                         }
-
                     } else {
                         System.out.println("\t" + TextColor.YELLOW + "CPU" + TextColor.RESET + " ha agarrado una carta de la pila");
                         cpu.agarrarCarta(juego);

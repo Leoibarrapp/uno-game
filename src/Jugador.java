@@ -85,22 +85,24 @@ public class Jugador{
         System.out.println("\t" + TextColor.GREEN + this.getNombre() + " ha cantado UNO!" + TextColor.RESET);
     }
 
-    public void jugar(Juego juego, Carta carta){
+    public void jugar(Juego juego, Carta carta) {
         juego.getMazoJuego().agregarCarta(carta);
         this.cartas.eliminarCarta(carta);
 
-        if(cartas.getMazo().size() == 1){
+        if (cartas.getMazo().size() == 1) {
             this.cantarUno();
         }
 
         juego.setColorActual(carta.getColor());
         carta.usar(juego);
 
-        if(cartas.getMazo().isEmpty()){
+        if (cartas.getMazo().isEmpty()) {
             juego.setGanador(this);
         }
     }
-
+    public int cartasRestantes(){
+        return cartas.getMazo().size();
+    }
     public String toString(){
         String s = nombre + " " + cartas + "\u001B[37m " + cartas.getMazo().size() + " cartas restantes";
 

@@ -1,3 +1,4 @@
+
 public class CartaComodin extends Carta{
 
     public CartaComodin(char color, String tipo) {
@@ -5,6 +6,10 @@ public class CartaComodin extends Carta{
     }
 
     public boolean esJugable(Juego juego) {
+        Jugador jugador = juego.getJugadores().get(juego.getTurno());
+            if (jugador.cartasRestantes() == 1)
+                return false;
+            else
         return true;
     }
 
