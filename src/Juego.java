@@ -4,6 +4,7 @@ public class Juego {
     private Mazo mazoJuego;
     private Mazo mazoPila;
     private ArrayList<Jugador> jugadores;
+    private Carta cartaTope;
     private Jugador ganador = null;
     private int turno;
     private char colorActual;
@@ -21,6 +22,9 @@ public class Juego {
         this.jugadores = jugadores;
     }
 
+    public Juego() {
+    }
+
     public Mazo getMazoJuego() {
         return mazoJuego;
     }
@@ -32,7 +36,13 @@ public class Juego {
     public ArrayList<Jugador> getJugadores() {
         return jugadores;
     }
+    public Carta setCartaTope(Mazo mazoPila) {
+       return  mazoPila.getTope();
+    }
 
+    public Carta getCartaActual() {
+        return cartaTope;
+    }
     /**
      * El turno pasa al siguiente jugador
      */

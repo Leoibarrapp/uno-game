@@ -1,10 +1,11 @@
+/*
 public class CartaColor extends Carta{
 
-    /**
+
      * Constructor de CartaColor
      * @param color el color de la carta
      * @param tipo el tipo de la carta, ejemplo: 0; 6; R (reversa)
-     */
+
     public CartaColor(char color, String tipo) {
         super(color, tipo);
     }
@@ -14,7 +15,7 @@ public class CartaColor extends Carta{
      * Si solo queda una carta y es comodin, entonces no se puede jugar
      * @param juego Se le pasa el juego para verificar el tope actual
      * @return true si es jugable y false si no
-     */
+
     public boolean esJugable(Juego juego){
         Carta tope = juego.getMazoJuego().getTope();
         switch (this.getTipo()){
@@ -39,7 +40,7 @@ public class CartaColor extends Carta{
      * Las cartas Reversa [R] y Saltar [S] hacen que repitas el turno
      * En el T2 ambos jugadores sueltan las cartas T2 que tengan y se van sumando hasta que se acaben
      * @param juego la funcion necesita acceso a los jugadores y sus cartas
-     */
+
     public void usar(Juego juego){
         switch(this.getTipo()){
             case "R","S":
@@ -75,4 +76,4 @@ public class CartaColor extends Carta{
         }
 
     }
-}
+}*/

@@ -1,29 +1,25 @@
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args){
-
+        GsonBuilder gsonBuilder = new GsonBuilder();
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
         Scanner cin = new Scanner(System.in);
         char menu = ' ';
 
         while(menu != '3') {
-            System.out.println();
-            System.out.println(TextColor.YELLOW + "     BIENENIDO AL " + TextColor.RESET);
-            Tiempo.delay(500);
-            System.out.print("        ██╗██╗   ██╗███████╗ ██████╗  ██████╗     ██╗   ██╗███╗   ██╗ ██████╗ \n");Tiempo.delay(200);
-            System.out.print("        ██║██║   ██║██╔════╝██╔════╝ ██╔═══██╗    ██║   ██║████╗  ██║██╔═══██╗\n");Tiempo.delay(200);
-            System.out.print("        ██║██║   ██║█████╗  ██║  ███╗██║   ██║    ██║   ██║██╔██╗ ██║██║   ██║\n");Tiempo.delay(200);
-            System.out.print("   ██   ██║██║   ██║██╔══╝  ██║   ██║██║   ██║    ██║   ██║██║╚██╗██║██║   ██║\n");Tiempo.delay(200);
-            System.out.print("   ╚█████╔╝╚██████╔╝███████╗╚██████╔╝╚██████╔╝    ╚██████╔╝██║ ╚████║╚██████╔╝\n");Tiempo.delay(200);
-            System.out.print("    ╚════╝  ╚═════╝ ╚══════╝ ╚═════╝  ╚═════╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ \n");Tiempo.delay(200);
             System.out.println();
             System.out.print(TextColor.YELLOW+"1."+TextColor.RESET);
             System.out.println(" Iniciar partida nueva");
@@ -45,39 +41,54 @@ public class Main {
                 default:
                     System.out.println("Gracias por jugar!");
             }
-          
-            if ((menu == '1') || (menu == '2')) {
+            Juego juego = new Juego();
+            Jugador cpu = new Jugador("CPU");
+            Jugador auxCPU = new Jugador();
+            Mazo pila = new Mazo();
+            Mazo baraja = new Mazo();
+            String idCarta = "";
+            int turno = 0;
+            Carta carta = null;
+            char colorEscogido = ' ';
+            Jugador jugador = new Jugador();
+            ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
+            if (menu == '1') {
+
                 System.out.print("Nombre: ");
                 String nombre = cin.nextLine();
 
-                Jugador jugador = new Jugador(nombre);
-                Jugador cpu = new CPU();
-                CPU auxCPU = (CPU) cpu;
-                ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
+                 jugador = new Jugador(nombre);
                 jugadores.add(jugador);
                 jugadores.add(cpu);
 
-                Mazo baraja = new Mazo();
                 baraja.crear();
                 baraja.barajear();
 
-                Mazo pila = new Mazo();
 
-                String idCarta = "";
-                int turno = 0;
-                Carta carta = null;
-                char colorEscogido = ' ';
-                
-                Juego juego = new Juego(pila, baraja, jugadores);
+                juego = new Juego(pila, baraja, jugadores);
                 juego.iniciarJuego();
 
                 System.out.println();
 
-                juego.setTurno((int) (Math.random() * 2));
-                System.out.println(TextColor.GREEN + "Escogiendo aleatoriamente los turnos..." + TextColor.RESET);
-                Tiempo.delay(1000);
+                juego.setTurno(0);
                 System.out.println();
+            }
+            else if (menu == '2') {
+                try {
+                    FileReader reader = new FileReader("partida.json");
+                    juego = gson.fromJson(reader, Juego.class);
+                    jugadores = (ArrayList<Jugador>) juego.getJugadores();
+                    baraja = (Mazo) juego.getMazoPila();
+                    pila = (Mazo) juego.getMazoJuego();
+                    cpu = jugadores.get(1);
+                    jugador = jugadores.get(0);
 
+
+                } catch (FileNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+if ((menu == '1') ||(menu == '2')) {
                     while (juego.getGanador() == null) {
 
                         System.out.println(TextColor.YELLOW + "TURNO DE " + jugadores.get(juego.getTurno()).getNombre() + TextColor.RESET);
@@ -105,7 +116,7 @@ public class Main {
                                     if (carta != null) {
                                         if (carta.esJugable(juego)) {
                                             System.out.println("\t" + TextColor.YELLOW + jugador.getNombre() + TextColor.RESET + " ha soltado la carta " + carta);
-                                            if (carta instanceof CartaComodin) {
+                                            if ((carta.getTipo() == "T4" ) || (carta.getTipo() == "CC")){
                                                 Tiempo.delay(200);
                                                 System.out.print("\tEscoge un color:  "+TextColor.RED + " [R] ROJO  " + TextColor.GREEN + " [G] VERDE  " + TextColor.BLUE + " [B] AZUL  " + TextColor.YELLOW + " [Y] AMARILLO  " + TextColor.RESET + " -> ");
                                                 colorEscogido = cin.nextLine().charAt(0);
@@ -147,12 +158,12 @@ public class Main {
                             case 1:
 
                                 if (cpu.puedeJugar(juego)) {
-                                    carta = auxCPU.escogerCarta(juego);
+                                    carta = cpu.escogerCarta(juego);
                                     Tiempo.delay(200);
                                     System.out.println("\t" + TextColor.YELLOW + "CPU" + TextColor.RESET + " ha soltado la carta " + carta);
                                     cpu.jugar(juego, carta);
-                                    if (carta instanceof CartaComodin) {
-                                        colorEscogido = auxCPU.escogerColor();
+                                    if ((carta.getTipo() == "CC" ) || (carta.getTipo() == "T4")) {
+                                        colorEscogido = cpu.escogerColor();
                                         System.out.println("\tSe ha cambiado el color a '" + colorEscogido + "'");
                                         juego.setColorActual(colorEscogido);
                                     }
@@ -161,7 +172,7 @@ public class Main {
                                     System.out.println("\t" + TextColor.YELLOW + "CPU" + TextColor.RESET + " ha agarrado una carta de la pila");
                                     cpu.agarrarCarta(juego);
                                     if (cpu.puedeJugar(juego)) {
-                                        carta = auxCPU.escogerCarta(juego);
+                                        carta = cpu.escogerCarta(juego);
                                     } else {
                                         juego.cambiarTurno();
                                     }
@@ -182,6 +193,7 @@ public class Main {
 
                         try {
                             FileWriter writer = new FileWriter("partida.json");
+
                             gson.toJson(juego, writer);
                             writer.close();
                         } catch (IOException e) {
@@ -200,6 +212,8 @@ public class Main {
                 System.out.println("Volver al menu principal");
             }
         }
+
+
         System.out.println();
         System.out.println( TextColor.GREEN + "Gracias por jugar con nosotros"+TextColor.RESET);
         System.out.println(" ██████╗ ██████╗  █████╗  ██████╗██╗ █████╗ ███████╗");

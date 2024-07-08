@@ -1,14 +1,18 @@
+/**
 public class CPU extends Jugador{
 
     public CPU() {
         super("CPU");
     }
 
-    /**
+    public CPU(Jugador jugador) {
+    }
+
+
      * El CPU escoge una carta de manera aleatoria
      * @param juego
      * @return la carta escogida por el CPU
-     */
+     *//*
     public Carta escogerCarta(Juego juego){
         Carta escogida = null;
         for(Carta carta : this.getCartas().getMazo()){
@@ -23,7 +27,7 @@ public class CPU extends Jugador{
     /**
      * EL CPU escoge un color de manera aleatoria para cuando corresponde un cambio de color
      * @return el color escogido por el CPU
-     */
+
     public char escogerColor(){
         int numero = (int) (Math.random()*4);
         char color = ' ';
@@ -43,7 +47,7 @@ public class CPU extends Jugador{
     /**
      * Es parecido al metodo toString de jugador
      * @return devuelve el nombre del jugador y la cantidad de cartas restantes
-     */
+
     public String toString(){
         String s = "CPU [...] \u001B[37m " + this.getCartas().getMazo().size() + " cartas restantes";
 
@@ -55,3 +59,4 @@ public class CPU extends Jugador{
     }
 
 }
+*/
