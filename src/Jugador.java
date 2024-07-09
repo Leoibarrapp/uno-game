@@ -3,9 +3,11 @@ import java.util.Objects;
 public class Jugador{
     private String nombre;
     private Mazo cartas;
+    private int puntaje;
 
     public Jugador(String nombre) {
         this.nombre = nombre;
+        this.puntaje = 0;
     }
 
     public Jugador() {
@@ -182,5 +184,12 @@ public class Jugador{
 
             return s + "\u001B[0m";
     }}
-}
 
+    public void setPuntaje(int puntaje) {
+        this.puntaje = puntaje;
+    }
+    public int getPuntaje(){
+        return this.puntaje;
+    }
+
+}

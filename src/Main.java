@@ -27,6 +27,8 @@ public class Main {
             System.out.println(" Jugar partida anterior");
             System.out.print(TextColor.GREEN+"  3."+TextColor.RESET);
             System.out.println(" Salir");
+            System.out.print(TextColor.RED+"   4."+TextColor.RESET);
+            System.out.println(" Ver tabla de Marcadores");
             System.out.print("Opcion -> ");
             menu = cin.nextLine().charAt(0);
             System.out.println();
@@ -38,12 +40,31 @@ public class Main {
                     break;
                 case '3':
                     break;
+                case '4':
+                    break;
                 default:
                     System.out.println("Gracias por jugar!");
             }
             Juego juego = new Juego();
+            Scoreboard puntaje = new Scoreboard();
+
+            FileReader readerScore = null;
+            try {
+                readerScore = new FileReader("puntajes.json");
+                puntaje = gson.fromJson(readerScore, Scoreboard.class);
+            } catch (FileNotFoundException e) {
+                System.out.println("No se encontró el archivo, creando archivo");
+                try {
+                    FileWriter  writer2 = new FileWriter("puntajes.json");
+                    writer2.close();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+
+            }
+
+
             Jugador cpu = new Jugador("CPU");
-            Jugador auxCPU = new Jugador();
             Mazo pila = new Mazo();
             Mazo baraja = new Mazo();
             String idCarta = "";
@@ -56,10 +77,20 @@ public class Main {
 
                 System.out.print("Nombre: ");
                 String nombre = cin.nextLine();
+                if (puntaje == null) {
+                    puntaje.crear();
+                }
 
-                 jugador = new Jugador(nombre);
+                jugador = new Jugador(nombre);
                 jugadores.add(jugador);
+                jugador.setPuntaje((int) (Math.random() * 500));
                 jugadores.add(cpu);
+                if (puntaje.buscar(jugador) == false) {
+                    puntaje.agregarJugador(jugador);
+                }else if (puntaje.buscar(jugador) == true) {
+                    System.out.println("Se encontró jugador existente");
+                    puntaje.reemplazar(jugador);
+                }
 
                 baraja.crear();
                 baraja.barajear();
@@ -72,8 +103,7 @@ public class Main {
 
                 juego.setTurno(0);
                 System.out.println();
-            }
-            else if (menu == '2') {
+            }else if (menu == '2') {
                 try {
                     FileReader reader = new FileReader("partida.json");
                     juego = gson.fromJson(reader, Juego.class);
@@ -83,10 +113,13 @@ public class Main {
                     cpu = jugadores.get(1);
                     jugador = jugadores.get(0);
 
-
                 } catch (FileNotFoundException e) {
                     throw new RuntimeException(e);
                 }
+
+            }else if (menu == '4') {
+                System.out.println("  TABLA DE MARCADORES  ");
+                puntaje.imprimir();
             }
 if ((menu == '1') ||(menu == '2')) {
                     while (juego.getGanador() == null) {
@@ -96,6 +129,9 @@ if ((menu == '1') ||(menu == '2')) {
                         System.out.println("Carta actual: " + pila.getTope());
                         Tiempo.delay(200);
                         System.out.println();
+                        System.out.println();
+                        puntaje.ordenar();
+                        puntaje.imprimir();
 
                         switch (juego.getTurno()) {
                             case 0:
@@ -193,6 +229,9 @@ if ((menu == '1') ||(menu == '2')) {
 
                         try {
                             FileWriter writer = new FileWriter("partida.json");
+                            FileWriter  writer2 = new FileWriter("puntajes.json");
+                            gson.toJson(puntaje,writer2);
+                            writer2.close();
 
                             gson.toJson(juego, writer);
                             writer.close();
